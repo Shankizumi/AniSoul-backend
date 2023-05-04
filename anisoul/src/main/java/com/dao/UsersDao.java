@@ -22,6 +22,12 @@ UsersRepository userRepository;
  public Users insert(Users user){
 	 return userRepository.save(user);
  }
+ public Users log(String userName,String password ){
+	 System.out.println(userName);
+	 System.out.println(password);
+	 
+	 return userRepository.login(userName, password);
+ }
 
 }
 
