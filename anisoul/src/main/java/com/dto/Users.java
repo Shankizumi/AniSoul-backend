@@ -7,14 +7,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 // annotation to create table into database
+
+
 @Entity
 public class Users {
-	
-	
-
-
+	 private static final BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
 	//annotation to create id as primary key and auto increment
 	@Id@GeneratedValue
 	private int userId;
@@ -36,8 +35,11 @@ public class Users {
 		this.emailId = emailId;
 		this.phoneNo = phoneNo;
 		this.userName = userName;
-		this.password = password;
+		 this.password = pwEncoder.encode(password);
 	}
+	
+	
+	
 	public Users() {
 		
 		// TODO Auto-generated constructor stub
