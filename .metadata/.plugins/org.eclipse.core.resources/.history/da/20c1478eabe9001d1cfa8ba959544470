@@ -1,0 +1,19 @@
+package com.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.dto.Anime;
+
+@Service
+public class AnimeDAO {
+	
+	@Autowired
+	AnimeRepository Animerepo;
+
+	public Anime GetAnimeBySection(String animeSection) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
