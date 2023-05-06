@@ -23,19 +23,15 @@ public class Users {
 	private String  userName;
 	private String password;
 	
-	
 
-	
-	
 	//constructer to initialize the values
-	public Users(int userId, String fullName, String emailId, String phoneNo, String userName, String password) {
+	public Users( String fullName, String emailId, String phoneNo, String userName, String password) {
 		super();
-		this.userId = userId;
 		this.fullName = fullName;
 		this.emailId = emailId;
 		this.phoneNo = phoneNo;
 		this.userName = userName;
-		 this.password = pwEncoder.encode(password);
+		 this.password = password;
 	}
 	
 	
@@ -84,8 +80,13 @@ public class Users {
 	public String getPassword() {
 		return password;
 	}
+	
+	public String getencodedPassword() {
+		return password;
+	}
+	
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = pwEncoder.encode(password);
 	}
 	
 	

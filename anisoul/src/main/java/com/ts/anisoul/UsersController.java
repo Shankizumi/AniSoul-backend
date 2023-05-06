@@ -3,6 +3,7 @@ package com.ts.anisoul;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.dto.Users;
 
 @RestController
 public class UsersController {
+	 private static final BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
 	@Autowired
 	UsersDao usersDao;
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -33,16 +35,17 @@ public class UsersController {
 		 System.out.println(EmailID);
 		 String subj="registration";
 		 String message="welcome to anisoul";
-	
 		 EmailService.sendEmail(message,subj,EmailID,"mohdkaif6371@gmail.com");
-		
-		return usersDao.insert(user);
+		 Users user1=new Users(user.getFullName(),user.getEmailId(),user.getPhoneNo(),user.getUserName(),user.getencodedPassword());
+		return usersDao.insert(user1);
 		
 	}
 	// get user by username and EmailID
 	@GetMapping("/login/{userName}/{password}")
-	public Users login(@PathVariable("userName") String userName, @PathVariable("password") String password) {
-	    return usersDao.log(userName, password);
+	public boolean userAuthentication (@PathVariable("userName") String userName, @PathVariable("password") String password) {
+		String encodedPassword =usersDao.userAuthentication(userName);
+	    return pwEncoder.matches(password, encodedPassword);
+	    		
 	}
 
 }
