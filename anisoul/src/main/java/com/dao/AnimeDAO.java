@@ -40,4 +40,17 @@ public class AnimeDAO {
 		return Animerepo.findById(animeId).orElse(new Anime(0,"Title Not Found!!","Description Not Found!!","Image Not Found","Section Not Found!!","Genre Not Found"));
 	}
 
+
+	public void DeleteAnime(int animeId) {
+		// TODO Auto-generated method stub
+		Animerepo.deleteById(animeId);
+		
+	}
+
+
+	public List<Anime> GetAllAnime() {
+		// TODO Auto-generated method stub
+		return Animerepo.findAll();
+	}
+
 }

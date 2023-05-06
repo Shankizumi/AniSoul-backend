@@ -3,9 +3,11 @@ package com.ts.anisoul;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,5 +43,22 @@ public class AnimeController {
 		return animeDAO.GetAnimeById(animeId);
 	}
 	
+	@GetMapping("/GetAllAnime")
+	public List<Anime> GetAllAnime(){
+		return animeDAO.GetAllAnime();
+		
+	}
+	
+	@PutMapping("/UpdateAnime")
+	public Anime UpdateAnime(@RequestBody Anime anime){
+		return animeDAO.RegisterAnime(anime);
+	}
+	
+	@DeleteMapping("/DeleteAnime/{animeId}")
+	public String DeleteAnime(@PathVariable("animeId") int animeId){
+		animeDAO.DeleteAnime(animeId);
+		return "Anime Deleted Successfully";
+		
+	}
 
 }

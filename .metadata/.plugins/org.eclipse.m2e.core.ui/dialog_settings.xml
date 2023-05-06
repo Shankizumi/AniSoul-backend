@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="F:\Anisoul Spring Boot\anisoul-backend"/>
 			<item value="C:\Users\hp\Downloads\anisoul"/>
 		</list>
 		<list key="projectNameTemplate">

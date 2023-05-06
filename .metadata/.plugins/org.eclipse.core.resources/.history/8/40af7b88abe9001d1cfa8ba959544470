@@ -1,9 +1,0 @@
-package com.dao;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.dto.Anime;
-
-public interface AnimeRepository extends JpaRepository<Anime, Integer>{
-
-}
