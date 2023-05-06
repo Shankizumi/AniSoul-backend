@@ -1,5 +1,7 @@
 package com.ts.anisoul;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +19,7 @@ public class AnimeController {
 	AnimeDAO animeDAO;
 	
 	@GetMapping("/GetAnimeBySection/{animeSection}")
-	public Anime GetAnimeBySection(@PathVariable("animeSection") String animeSection){
+	public List<Anime> GetAnimeBySection(@PathVariable("animeSection") String animeSection){
 		return animeDAO.GetAnimeBySection(animeSection);
 		
 	}
