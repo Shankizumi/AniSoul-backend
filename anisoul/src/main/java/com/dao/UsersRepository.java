@@ -10,6 +10,8 @@ public interface UsersRepository extends JpaRepository<Users,Integer> {
 	@Query(" select e.password from Users e where e.userName = :userName ")
 	public String userAuthentication(@Param("userName") String userName);
 	
+		@Query(" from Users e where e.userName = :userName ")
+	public Users userByUserName(@Param("userName")  String userName);
 	
 	
 }
