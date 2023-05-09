@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +21,6 @@ public class UsersController {
 	 private static final BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
 	@Autowired
 	UsersDao usersDao;
-	@CrossOrigin(origins = "http://localhost:4200")
 	
 	// request method to fetch data from database
 	@GetMapping("/getAllUsers")
@@ -28,6 +28,10 @@ public class UsersController {
 		return usersDao.getAllEmployees();
 	}
 	
+	@GetMapping("getUserByUserName/{UserName}")
+	public Users getUserByUserName(@PathVariable("UserName") String UserName){
+		return usersDao.getUserByUserName(UserName);
+	}
 	//request mothod to store the data in databse
 	@PostMapping("/registration")
 	public Users registration(@RequestBody Users user ){
@@ -38,15 +42,18 @@ public class UsersController {
 		 EmailService.sendEmail(message,subj,EmailID,"mohdkaif6371@gmail.com");
 		 Users user1=new Users(user.getFullName(),user.getEmailId(),user.getPhoneNo(),user.getUserName(),user.getencodedPassword());
 		return usersDao.insert(user1);
-		
+		}
+	
+	@PutMapping("/updateProfile") 
+	public Users updateProfile(@RequestBody Users user){
+		return usersDao.insert(user);
 	}
-	// get user by username and EmailID
+	
 	@GetMapping("/login/{userName}/{password}")
 	public boolean userAuthentication (@PathVariable("userName") String userName, @PathVariable("password") String password) {
 		String encodedPassword =usersDao.userAuthentication(userName);
 	    return pwEncoder.matches(password, encodedPassword);
 	    		
 	}
-
 }
 
