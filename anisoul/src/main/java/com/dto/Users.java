@@ -81,7 +81,7 @@ public class Users {
 	}
 	
 	public String getencodedPassword() {
-		return pwEncoder.encode(password);;
+		return pwEncoder.encode(password);
 	}
 	
 	public void setPassword(String password) {
