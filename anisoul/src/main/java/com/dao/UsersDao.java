@@ -25,9 +25,6 @@ UsersRepository userRepository;
  public String userAuthentication(String userName ){
 	 return userRepository.userAuthentication(userName);
  }
- public Users getUserByUserName( String userName){
-	 return userRepository.userByUserName(userName);
- }
 
  public Users getUserByUserName(String userName){
 	 return userRepository.userByUserName(userName);
