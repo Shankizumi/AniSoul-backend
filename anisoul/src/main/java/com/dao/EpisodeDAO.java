@@ -15,4 +15,9 @@ public class EpisodeDAO {
 		// TODO Auto-generated method stub
 		return epiRepo.save(episode);
 	}
+
+	public void DeleteEpisode(int episodeId) {
+		// TODO Auto-generated method stub
+		epiRepo.deleteById(episodeId);
+	}
 }
