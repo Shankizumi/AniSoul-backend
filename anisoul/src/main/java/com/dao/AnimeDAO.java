@@ -53,4 +53,14 @@ public class AnimeDAO {
 		return Animerepo.findAll();
 	}
 
+
+	public List<Anime> GetAnimeByGenre(String Genre) {
+		if(Animerepo.GetAnimeByGenre(Genre)==null){
+			return null;	
+		}
+		return Animerepo.GetAnimeByGenre(Genre);
+		// TODO Auto-generated method stub
+		
+	}
+
 }

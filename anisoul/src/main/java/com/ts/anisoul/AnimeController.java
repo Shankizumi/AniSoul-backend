@@ -49,6 +49,12 @@ public class AnimeController {
 		
 	}
 	
+	@GetMapping("/GetAnimeByGenre/{Genre}")
+	public List<Anime> GetAnimeByGenre(@PathVariable("Genre") String Genre){
+		return animeDAO.GetAnimeByGenre(Genre);
+		
+	}
+	
 	@PutMapping("/UpdateAnime")
 	public Anime UpdateAnime(@RequestBody Anime anime){
 		return animeDAO.RegisterAnime(anime);
