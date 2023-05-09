@@ -20,6 +20,12 @@ public class Anime {
 	private String animeSection;
 	private String Genre;
 	
+
+	@JsonIgnore
+	@OneToMany(mappedBy="anime")
+	List<Episode> eplist=new ArrayList<Episode>();
+	
+	
 	public Anime() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -78,10 +84,6 @@ public class Anime {
 		return "Anime [animeId=" + animeId + ", animeTitle=" + animeTitle + ", animeDesc=" + animeDesc + ", animeImage="
 				+ animeImage + ", animeSection=" + animeSection + ", Genre=" + Genre + "]";
 	}
-	
-	@JsonIgnore
-	@OneToMany(mappedBy="anime")
-	List<Episode> eplist=new ArrayList<Episode>();
 	
 
 }

@@ -1,7 +1,6 @@
 package com.dto;
 
-/*import javax.persistence.Column;
-*/
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -15,12 +14,12 @@ public class Episode {
 	
 	@ManyToOne
 	@JoinColumn(name="animeId")
-	/*@Column(name="anime")*/
 	Anime anime;
 	
 	private int episodeNo;
 	private String episodeLink;
 	private String type;
+	
 	public Episode() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -68,9 +67,5 @@ public class Episode {
 		return "Episode [episodeId=" + episodeId + ", anime=" + anime + ", episodeNo=" + episodeNo + ", episodeLink="
 				+ episodeLink + ", type=" + type + "]";
 	}
-	
-	
-	
-	
 
 }
