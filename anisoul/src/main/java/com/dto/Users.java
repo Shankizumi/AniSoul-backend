@@ -1,4 +1,3 @@
-
 package com.dto;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -82,11 +81,11 @@ public class Users {
 	}
 	
 	public String getencodedPassword() {
-		return password;
+		return pwEncoder.encode(password);;
 	}
 	
 	public void setPassword(String password) {
-		this.password = pwEncoder.encode(password);
+		this.password = password;
 	}
 	
 	
