@@ -22,9 +22,15 @@ UsersRepository userRepository;
  public Users insert(Users user){
 	 return userRepository.save(user);
  }
- public String userAuthentication(String userName ){
-	 return userRepository.userAuthentication(userName);
+ public String userAuthentication(String UserName ){
+	 return userRepository.userAuthentication(UserName);
  }
+ 
+ public Users getUserByUserName( String userName){
+	 return userRepository.userByUserName(userName);
+ }
+ 
+ 
 
  public Users getUserByUserName(String userName){
 	 return userRepository.userByUserName(userName);

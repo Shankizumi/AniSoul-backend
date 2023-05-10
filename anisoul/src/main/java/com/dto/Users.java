@@ -22,7 +22,6 @@ public class Users {
 	private String  userName;
 	private String password;
 	
-
 	//constructer to initialize the values
 	public Users( String fullName, String emailId, String phoneNo, String userName, String password) {
 		super();
@@ -32,9 +31,7 @@ public class Users {
 		this.userName = userName;
 		 this.password = password;
 	}
-	
-	
-	
+
 	public Users() {
 		
 		// TODO Auto-generated constructor stub
