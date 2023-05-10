@@ -29,9 +29,6 @@ public class PayementController {
 
 			if (orderRequest.getAmount().intValue() > 1000) {
 				client = new RazorpayClient(SECRET_ID1, SECRET_KEY1);}
-//			} else {
-//				client = new RazorpayClient(SECRET_ID2, SECRET_KEY2);
-//			}
 
 			Order order = createRazorPayOrder(orderRequest.getAmount());
 			System.out.println("---------------------------");
@@ -45,15 +42,9 @@ public class PayementController {
 				response.setSecretId(SECRET_ID1);
 				response.setPgName("razor1");
 			} 
-//			else {
-//				response.setSecretKey(SECRET_KEY2);
-//				response.setSecretId(SECRET_ID2);
-//				response.setPgName("razor2");
-//			}
 
 			return response;
 		} catch (RazorpayException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
