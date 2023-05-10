@@ -26,12 +26,6 @@ UsersRepository userRepository;
 	 return userRepository.userAuthentication(UserName);
  }
  
- public Users getUserByUserName( String userName){
-	 return userRepository.userByUserName(userName);
- }
- 
- 
-
  public Users getUserByUserName(String userName){
 	 return userRepository.userByUserName(userName);
  }
