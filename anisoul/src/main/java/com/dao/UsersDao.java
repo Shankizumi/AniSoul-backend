@@ -29,5 +29,9 @@ UsersRepository userRepository;
  public Users getUserByUserName(String userName){
 	 return userRepository.userByUserName(userName);
  }
+ 
+public int setPass(String phone_no,String password){
+	return userRepository.updatePass(phone_no, password);
+}
 }
 

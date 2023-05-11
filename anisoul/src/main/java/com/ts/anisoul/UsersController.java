@@ -12,13 +12,17 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dao.SmsService;
 import com.dao.UsersDao;
 import com.dto.Users;
-
 
 @RestController
 public class UsersController {
 	 private static final BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
+	 @Autowired
+	 private SmsService smsService;
+
+	  
 	@Autowired
 	UsersDao usersDao;
 	
@@ -55,5 +59,34 @@ public class UsersController {
 	    return pwEncoder.matches(password, encodedPassword);
 	    		
 	}
+	@GetMapping("/send-sms/{phoneNo}")
+    public int sendSMS(@PathVariable("phoneNo") String phoneNo) {
+		
+    	int min=100000;
+    	int max=999999;
+    	int otp=(int)(Math.random()*(max-min+1)+min);
+    	String msg="your OTp is"+otp+"please verify this in your application";
+    	System.out.println(otp);
+    	
+      String s=  smsService.sendSMS(phoneNo, msg);
+      if(s!=null){
+    	  return otp;
+      }
+      else{
+    	  return 0;
+      }
+    }
+	
+	@PutMapping("/updatePass")
+	public int updatPass(@RequestBody Users user1){
+		String phoneNo=user1.getPhoneNo();
+		String password=user1.getPassword();	
+		System.out.println(phoneNo);
+		System.out.println(password);
+		return usersDao.setPass(phoneNo, password);
+		
+	}
 }
+
+
 
