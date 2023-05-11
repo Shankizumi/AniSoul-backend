@@ -1,12 +1,13 @@
 package com.dto;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class WatchList {
 	
-	@Id
+	@Id@GeneratedValue
 	private int watchId;
 	private int userId;
 	private int animeId;
