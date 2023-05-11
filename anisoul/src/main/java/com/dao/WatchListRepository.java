@@ -17,8 +17,8 @@ public interface WatchListRepository extends JpaRepository<WatchList, Integer>{
 	
 	@Modifying
 	@Transactional
-	@Query("DELETE FROM WatchList w WHERE w.animeId = :animeId AND w.userId = :userId")
-	public void DeleteWatchList(@Param("userId") int userId,@Param("animeId") int animeId);
+	@Query("DELETE FROM WatchList w WHERE w.animeId = :animeId" )
+	public void DeleteWatchList(@Param("animeId") int animeId);
 
 	@Query("from WatchList w where w.userId = :userId")
 	public List<WatchList> GetWatchListByUserId(@Param("userId") int userId);
