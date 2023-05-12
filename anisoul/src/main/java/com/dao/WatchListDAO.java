@@ -19,9 +19,9 @@ public class WatchListDAO {
 	}
 	
 
-	public void DeleteWatchList(int animeId) {
+	public void DeleteWatchList(int watchId) {
 		// TODO Auto-generated method stub
-		 wlRepo.DeleteWatchList(animeId);		
+		 wlRepo.DeleteWatchList(watchId);		
 	}
 
 	public List<WatchList> GetWatchListByUserId(int userId) {

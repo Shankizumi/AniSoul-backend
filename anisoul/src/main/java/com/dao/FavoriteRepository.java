@@ -19,7 +19,7 @@ public interface FavoriteRepository extends JpaRepository<Favorite, Integer>{
 
 	@Modifying
 	@Transactional
-	@Query("DELETE FROM Favorite f WHERE f.animeId = :animeId AND f.userId = :userId")
-	public void DeleteFavorite(@Param("userId") int userId,@Param("animeId") int animeId);
+	@Query("DELETE FROM Favorite w WHERE w.favoriteId= :favoriteId" )
+	public void DeleteFavorite(@Param("favoriteId") int favoriteId);
 
 }

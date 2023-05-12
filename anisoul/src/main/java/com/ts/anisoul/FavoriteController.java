@@ -14,6 +14,7 @@ import com.dao.FavoriteDAO;
 /*import com.dao.FavoriteDAO;
 */
 import com.dto.Favorite;
+import com.dto.WatchList;
 
 @RestController
 public class FavoriteController {
@@ -23,6 +24,14 @@ public class FavoriteController {
 	
 	@PostMapping("/RegisterFavorite")
 	public Favorite RegisterFavorite(@RequestBody Favorite favorite){
+		List<Favorite>allAnime=favDAO.GetFavoriteByUserId(favorite.getUserId());
+		
+		for(Favorite ob :allAnime){
+			if
+			(ob.getAnimeTitle().equals(favorite.getAnimeTitle())){		
+				return null;
+			}
+		}
 		return favDAO.RegisterFavorite(favorite);		
 	}
 	
@@ -32,9 +41,9 @@ public class FavoriteController {
 		
 	}
 	
-	@DeleteMapping("/DeleteFavorite/{userId}/{animeId}")
-	public String DeleteFavorite(@PathVariable("userId") int userId,@PathVariable("animeId") int animeId){
-		favDAO.DeleteFavorite(userId,animeId);
+	@DeleteMapping("/DeleteFavorite/{favoriteId}")
+	public String DeleteFavorite(@PathVariable("favoriteId") int favoriteId){
+		favDAO.DeleteFavorite(favoriteId);
 		return "Favorite Deleted Successfully";
 	}
 }

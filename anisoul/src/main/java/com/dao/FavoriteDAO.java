@@ -26,9 +26,9 @@ public class FavoriteDAO {
 		return favRepo.GetFavoriteByUserId(userId);
 	}
 
-	public void DeleteFavorite(int userId, int animeId) {
+	public void DeleteFavorite(int favoriteId) {
 		// TODO Auto-generated method stub
-		favRepo.DeleteFavorite(userId,animeId);
+		favRepo.DeleteFavorite(favoriteId);
 		
 	}
 }

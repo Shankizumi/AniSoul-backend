@@ -34,11 +34,9 @@ public class WatchListController {
 		
 	}
 	
-	@DeleteMapping("/DeleteWatchList/{animeId}")
-	public String DeleteWatchList(@PathVariable("animeId") int animeId){
-		wlDAO.DeleteWatchList(animeId);
-		System.out.println("hello");
-		 
+	@DeleteMapping("/DeleteWatchList/{watchId}")
+	public String DeleteWatchList(@PathVariable("watchId") int watchId){
+		wlDAO.DeleteWatchList(watchId);		 
 		 return "Deleted WatchList Successfully";
 	}
 	
