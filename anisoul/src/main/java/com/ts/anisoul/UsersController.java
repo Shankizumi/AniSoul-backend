@@ -80,7 +80,7 @@ public class UsersController {
 	@PutMapping("/updatePass")
 	public int updatPass(@RequestBody Users user1){
 		String phoneNo=user1.getPhoneNo();
-		String password=user1.getPassword();	
+		String password=user1.getencodedPassword();	
 		System.out.println(phoneNo);
 		System.out.println(password);
 		return usersDao.setPass(phoneNo, password);
