@@ -21,6 +21,11 @@ public interface UsersRepository extends JpaRepository<Users,Integer> {
 	public int updatePass(@Param("phoneNo") String phoneNo,@Param("password") String passowrd);
 //    @Query("UPDATE Users e SET e.password = :password WHERE e.userid = :userid")
 //	public int updatePass(@Param("password") String passowrd,@Param("userid") String userid);
+	@Transactional
+	@Modifying
+    @Query("UPDATE Users e SET e.password = :password WHERE e.emailId = :emailId")
+	public int updateNewPass(@Param("emailId") String emailId,@Param("password") String passowrd);
+	
 
 }
 

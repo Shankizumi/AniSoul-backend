@@ -33,5 +33,11 @@ UsersRepository userRepository;
 public int setPass(String phone_no,String password){
 	return userRepository.updatePass(phone_no, password);
 }
+
+
+public int setNewPass(String emailId, String password) {
+	// TODO Auto-generated method stub
+	return userRepository.updateNewPass(emailId,password) ;
+}
 }
 

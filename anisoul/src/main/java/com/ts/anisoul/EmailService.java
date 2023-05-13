@@ -16,13 +16,14 @@ public class EmailService {
 	
 	
          
-	public static void sendEmail(String message,String subject,String to ,String from){
+	public static boolean sendEmail(String message,String subject,String to ,String from){
 		String host="smtp.gmail.com";
 		Properties properties=System.getProperties();
 		properties.put("mail.smtp.host",host);
 		properties.put("mail.smtp.port","465");
 		properties.put("mail.smtp.ssl.enable","true");
 		properties.put("mail.smtp.auth","true");
+		boolean flag=true;
 		
 		
 	Session session=	Session.getInstance(properties,new Authenticator(){
@@ -51,9 +52,12 @@ public class EmailService {
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			flag=false;
 		}
+		return flag;
 		
 	}
+	
 
 }
 

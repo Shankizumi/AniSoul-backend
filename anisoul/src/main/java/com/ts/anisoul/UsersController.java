@@ -39,13 +39,36 @@ public class UsersController {
 	//request mothod to store the data in databse
 	@PostMapping("/registration")
 	public Users registration(@RequestBody Users user ){
+		Users user2=null;
+		boolean flag2=true;
+	
+		try{
 		 String EmailID=user.getEmailId();
 		 System.out.println(EmailID);
 		 String subj="registration";
 		 String message="welcome to anisoul";
-		 EmailService.sendEmail(message,subj,EmailID,"mohdkaif6371@gmail.com");
+		boolean flag= EmailService.sendEmail(message,subj,EmailID,"mohdkaif6371@gmail.com");
 		 Users user1=new Users(user.getFullName(),user.getEmailId(),user.getPhoneNo(),user.getUserName(),user.getencodedPassword());
-		return usersDao.insert(user1);
+		 if(flag){
+		user2=usersDao.insert(user1); 
+		 }
+		 else{
+			 return null;
+		 }
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			flag2=false;
+			
+		}
+		if(flag2){
+			return user2;
+		}
+		else{
+			
+			return null;
+		}
+		
 		}
 	
 	@PutMapping("/updateProfile") 
@@ -86,7 +109,34 @@ public class UsersController {
 		return usersDao.setPass(phoneNo, password);
 		
 	}
+	
+	@GetMapping("/sendOTPByEmail/{emailId}")
+	public int sendOTPByEmail(@PathVariable("emailId") String emailId){
+		int min=100000;
+    	int max=999999;
+    	int otp=(int)(Math.random()*(max-min+1)+min);
+    	String msg="your OTp is  " +otp+ "  please verify this in your application";
+    	System.out.println(otp);
+    	String subj="otp service";
+    	boolean flag= EmailService.sendEmail(msg,subj,emailId,"mohdkaif6371@gmail.com");
+    	if(flag){
+    		return otp;
+    	}
+    	else{
+    		return 0;
+    	}
+   
 }
-
+	@PutMapping("/updateNewPass")
+	public int  newPass(@RequestBody Users user1){
+		String emailId=user1.getEmailId();
+		String password=user1.getPassword();	
+		
+		
+		return usersDao.setNewPass(emailId, password);
+		
+	}
+	
+}
 
 

@@ -1,6 +1,7 @@
 package com.dto;
 import java.util.Set;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,8 +18,10 @@ public class Users {
 	@Id@GeneratedValue
 	private int userId;
 	private String fullName;
+	@Column(unique = true)
 	private String emailId;
 	private String phoneNo;
+	@Column(unique = true)
 	private String  userName;
 	private String password;
 	
