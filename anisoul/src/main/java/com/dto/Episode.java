@@ -2,6 +2,7 @@ package com.dto;
 
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -9,13 +10,12 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Episode {
 	
-	@Id
+	@Id@GeneratedValue
 	private int episodeId;
 	
 	@ManyToOne
 	@JoinColumn(name="animeId")
 	Anime anime;
-	
 	private int episodeNo;
 	private String episodeLink;
 	private String type;

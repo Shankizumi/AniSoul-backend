@@ -47,14 +47,12 @@ public class UsersController {
 		 System.out.println(EmailID);
 		 String subj="registration";
 		 String message="welcome to anisoul";
-		boolean flag= EmailService.sendEmail(message,subj,EmailID,"mohdkaif6371@gmail.com");
+		
 		 Users user1=new Users(user.getFullName(),user.getEmailId(),user.getPhoneNo(),user.getUserName(),user.getencodedPassword());
-		 if(flag){
+		
 		user2=usersDao.insert(user1); 
-		 }
-		 else{
-			 return null;
-		 }
+		EmailService.sendEmail(message,subj,EmailID,"mohdkaif6371@gmail.com");
+		 
 		}
 		catch(Exception e){
 			e.printStackTrace();
