@@ -25,12 +25,9 @@ public class Anime {
 	@OneToMany(mappedBy="anime")
 	List<Episode> eplist=new ArrayList<Episode>();
 	
-	
 	public Anime() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	
 	public Anime(int animeId, String animeTitle, String animeDesc, String animeImage, String animeSection,
 			String genre) {
 		super();
@@ -39,7 +36,7 @@ public class Anime {
 		this.animeDesc = animeDesc;
 		this.animeImage = animeImage;
 		this.animeSection = animeSection;
-		Genre = genre;
+		this.Genre = genre;
 	}
 	
 	public int getAnimeId() {
@@ -76,7 +73,7 @@ public class Anime {
 		return Genre;
 	}
 	public void setGenre(String genre) {
-		Genre = genre;
+		this.Genre = genre;
 	}
 	
 	@Override
