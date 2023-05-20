@@ -23,6 +23,7 @@ public class EpisodeController {
 	
 	@PostMapping("/RegisterEpisode")
 	public Episode RegisterEpisode(@RequestBody Episode episode){
+		System.out.println("hii");
 		return epDAO.RegisterEpisode(episode);
 		
 	}

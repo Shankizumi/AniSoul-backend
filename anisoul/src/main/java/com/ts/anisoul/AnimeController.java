@@ -28,6 +28,7 @@ public class AnimeController {
 	
 	@PostMapping("/RegisterAnime")
 	public Anime RegisterAnime(@RequestBody Anime anime){
+		System.out.println(anime.getAnimeId());
 		return animeDAO.RegisterAnime(anime);
 		
 	}
@@ -56,14 +57,14 @@ public class AnimeController {
 	}
 	
 	@PutMapping("/UpdateAnime")
-	public Anime UpdateAnime(@RequestBody Anime anime){
-		return animeDAO.RegisterAnime(anime);
+	public void UpdateAnime(@RequestBody Anime anime){
+		 animeDAO.RegisterAnime(anime);
 	}
 	
 	@DeleteMapping("/DeleteAnime/{animeId}")
-	public String DeleteAnime(@PathVariable("animeId") int animeId){
-		animeDAO.DeleteAnime(animeId);
-		return "Anime Deleted Successfully";
+	public void  DeleteAnime(@PathVariable("animeId") int animeId){
+		
+		 animeDAO.DeleteAnime(animeId);
 		
 	}
 
