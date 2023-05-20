@@ -36,6 +36,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		 <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        </dependency>
 			<dependency>
 			<groupId>com.razorpay</groupId>
 			<artifactId>razorpay-java</artifactId>
@@ -45,17 +49,22 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-mail</artifactId>
-    <version>2.7.11</version>
-</dependency>
- <dependency>
+ 		<dependency>
         <groupId>com.twilio.sdk</groupId>
         <artifactId>twilio</artifactId>
         <version>8.8.0</version>
     </dependency>
-	</dependencies>
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-mail</artifactId>
+	    <version>2.7.11</version><!--$NO-MVN-MAN-VER$-->
+  		 </dependency>
+  		 <dependency>
+   		 <groupId>org.springframework.boot</groupId>
+   		 <artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
+		</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>

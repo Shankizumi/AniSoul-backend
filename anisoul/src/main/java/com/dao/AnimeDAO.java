@@ -25,7 +25,7 @@ public class AnimeDAO {
 		// TODO Auto-generated method stub
 		return Animerepo.save(anime);
 	}
-
+	
 	public Anime GetAnimeByTitle(String animeTitle) {
 		// TODO Auto-generated method stub
 		Anime anime = Animerepo.GetAnimeByTitle(animeTitle);

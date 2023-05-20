@@ -42,14 +42,11 @@ public class PayementController {
 				response.setSecretId(SECRET_ID1);
 				response.setPgName("razor1");
 			} 
-
 			return response;
 		} catch (RazorpayException e) {
 			e.printStackTrace();
 		}
-
 		return response;
-
 	}
 
 	private Order createRazorPayOrder(BigInteger amount) throws RazorpayException {
