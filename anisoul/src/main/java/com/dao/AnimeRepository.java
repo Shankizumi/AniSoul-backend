@@ -8,15 +8,13 @@ import org.springframework.data.repository.query.Param;
 
 import com.dto.Anime;
 
-public interface AnimeRepository extends JpaRepository<Anime, Integer>{
+public interface AnimeRepository extends JpaRepository<Anime, Integer> {
 
 	@Query("from Anime a where a.animeSection= :animeSection")
 	public List<Anime> GetAnimeBySection(@Param("animeSection") String animeSection);
 
-
 	@Query("from Anime a where a.animeTitle= :animeTitle")
 	public Anime GetAnimeByTitle(@Param("animeTitle") String animeTitle);
-
 
 	@Query("from Anime a where a.Genre = :Genre")
 	public List<Anime> GetAnimeByGenre(@Param("Genre") String Genre);

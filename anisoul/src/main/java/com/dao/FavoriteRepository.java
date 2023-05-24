@@ -12,14 +12,14 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dto.Favorite;
 
 @Repository
-public interface FavoriteRepository extends JpaRepository<Favorite, Integer>{
+public interface FavoriteRepository extends JpaRepository<Favorite, Integer> {
 
 	@Query("from Favorite f where f.userId = :userId")
 	public List<Favorite> GetFavoriteByUserId(@Param("userId") int userId);
 
 	@Modifying
 	@Transactional
-	@Query("DELETE FROM Favorite w WHERE w.favoriteId= :favoriteId" )
+	@Query("DELETE FROM Favorite w WHERE w.favoriteId= :favoriteId")
 	public void DeleteFavorite(@Param("favoriteId") int favoriteId);
 
 }

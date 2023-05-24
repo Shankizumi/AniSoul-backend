@@ -1,4 +1,5 @@
 package com.ts.anisoul;
+
 import java.math.BigInteger;
 
 import org.json.JSONException;
@@ -19,8 +20,6 @@ public class PayementController {
 	private RazorpayClient client;
 	private static final String SECRET_ID1 = "rzp_test_avvw7zDTbakRmq";
 	private static final String SECRET_KEY1 = "7HqzroP1rBTHUPjs4Krf2pYh";
-//	private static final String SECRET_ID2 = "rzp_test_J4fInjDpTX475d";
-//	private static final String SECRET_KEY2 = "r8fNXAB78RmsVfdiQbWGwyjr";
 
 	@RequestMapping(path = "/createOrder", method = RequestMethod.POST)
 	public OrderResponse createOrder(@RequestBody OrderRequest orderRequest) {
@@ -28,7 +27,8 @@ public class PayementController {
 		try {
 
 			if (orderRequest.getAmount().intValue() > 1000) {
-				client = new RazorpayClient(SECRET_ID1, SECRET_KEY1);}
+				client = new RazorpayClient(SECRET_ID1, SECRET_KEY1);
+			}
 
 			Order order = createRazorPayOrder(orderRequest.getAmount());
 			System.out.println("---------------------------");
@@ -41,7 +41,7 @@ public class PayementController {
 				response.setSecretKey(SECRET_KEY1);
 				response.setSecretId(SECRET_ID1);
 				response.setPgName("razor1");
-			} 
+			}
 			return response;
 		} catch (RazorpayException e) {
 			e.printStackTrace();

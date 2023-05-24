@@ -15,32 +15,35 @@ public class EpisodeDAO {
 	@Autowired
 	EpisodeRepository epiRepo;
 
+//	registering the anime episode
 	public Episode RegisterEpisode(Episode episode) {
-		// TODO Auto-generated method stub
 		return epiRepo.save(episode);
 	}
 
+//	deleting anime episode using episodeId
 	public void DeleteEpisode(int episodeId) {
-		// TODO Auto-generated method stub
 		epiRepo.deleteById(episodeId);
 	}
 
+//	getting list of all episodes
 	public List<Episode> GetAllEpisodes() {
-		// TODO Auto-generated method stub
 		return epiRepo.findAll();
 	}
 
+//	getting list of all episodes for a specific anime
 	public List<Episode> getEpisode(Anime anime) {
 		return epiRepo.findEpList(anime);
 	}
+
+//	getting list of all episode based on animeId
 	public List<Episode> GetEpisodeByAnimeId(int animeId) {
-		// TODO Auto-generated method stub
-		
+
 		return epiRepo.GetEpisodeByAnimeId(animeId);
 	}
 
+//	getting a list of episode
 	public void RegisterListEpisode(List<Episode> episode) {
-		for(Episode episode1  :episode){
+		for (Episode episode1 : episode) {
 			epiRepo.save(episode1);
 			System.out.println("sucess");
 		}

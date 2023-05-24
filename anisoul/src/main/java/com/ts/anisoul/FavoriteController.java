@@ -21,28 +21,27 @@ public class FavoriteController {
 
 	@Autowired
 	FavoriteDAO favDAO;
-	
+
 	@PostMapping("/RegisterFavorite")
-	public Favorite RegisterFavorite(@RequestBody Favorite favorite){
-		List<Favorite>allAnime=favDAO.GetFavoriteByUserId(favorite.getUserId());
-		
-		for(Favorite ob :allAnime){
-			if
-			(ob.getAnimeTitle().equals(favorite.getAnimeTitle())){		
+	public Favorite RegisterFavorite(@RequestBody Favorite favorite) {
+		List<Favorite> allAnime = favDAO.GetFavoriteByUserId(favorite.getUserId());
+
+		for (Favorite ob : allAnime) {
+			if (ob.getAnimeTitle().equals(favorite.getAnimeTitle())) {
 				return null;
 			}
 		}
-		return favDAO.RegisterFavorite(favorite);		
+		return favDAO.RegisterFavorite(favorite);
 	}
-	
+
 	@GetMapping("/GetFavoriteByUserId/{userId}")
-	public List<Favorite> GetFavoriteByUserId(@PathVariable("userId") int userId){
+	public List<Favorite> GetFavoriteByUserId(@PathVariable("userId") int userId) {
 		return favDAO.GetFavoriteByUserId(userId);
-		
+
 	}
-	
+
 	@DeleteMapping("/DeleteFavorite/{favoriteId}")
-	public String DeleteFavorite(@PathVariable("favoriteId") int favoriteId){
+	public String DeleteFavorite(@PathVariable("favoriteId") int favoriteId) {
 		favDAO.DeleteFavorite(favoriteId);
 		return "Favorite Deleted Successfully";
 	}

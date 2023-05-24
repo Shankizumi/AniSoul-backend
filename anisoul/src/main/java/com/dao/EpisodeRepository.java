@@ -11,12 +11,12 @@ import com.dto.Episode;
 import com.dto.Favorite;
 import com.dto.WatchList;
 
-public interface EpisodeRepository extends JpaRepository<Episode, Integer>{
+public interface EpisodeRepository extends JpaRepository<Episode, Integer> {
 
 	@Query("from Episode e where e.anime = :anime")
 	public List<Episode> findEpList(@Param("anime") Anime anime);
-	
+
 	@Query("SELECT e FROM Episode e WHERE e.anime.animeId = :animeId")
 	public List<Episode> GetEpisodeByAnimeId(@Param("animeId") int animeId);
-	
+
 }

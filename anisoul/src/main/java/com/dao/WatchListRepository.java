@@ -12,12 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dto.WatchList;
 
 @Repository
-public interface WatchListRepository extends JpaRepository<WatchList, Integer>{
+public interface WatchListRepository extends JpaRepository<WatchList, Integer> {
 
-	
 	@Modifying
 	@Transactional
-	@Query("DELETE FROM WatchList w WHERE w.watchId = :watchId" )
+	@Query("DELETE FROM WatchList w WHERE w.watchId = :watchId")
 	public void DeleteWatchList(@Param("watchId") int watchId);
 
 	@Query("from WatchList w where w.userId = :userId")

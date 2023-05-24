@@ -11,15 +11,19 @@ public class OrderResponse {
 	public String getPgName() {
 		return pgName;
 	}
+
 	public void setPgName(String pgName) {
 		this.pgName = pgName;
 	}
+
 	public String getSecretId() {
 		return secretId;
 	}
+
 	public void setSecretId(String secretId) {
 		this.secretId = secretId;
 	}
+
 	public String getSecretKey() {
 		return secretKey;
 	}
@@ -31,12 +35,15 @@ public class OrderResponse {
 	public String getRazorpayOrderId() {
 		return razorpayOrderId;
 	}
+
 	public void setRazorpayOrderId(String razorpayOrderId) {
 		this.razorpayOrderId = razorpayOrderId;
 	}
+
 	public String getApplicationFee() {
 		return applicationFee;
 	}
+
 	public void setApplicationFee(String applicationFee) {
 		this.applicationFee = applicationFee;
 	}

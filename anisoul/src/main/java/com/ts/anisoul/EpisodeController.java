@@ -20,49 +20,47 @@ public class EpisodeController {
 
 	@Autowired
 	EpisodeDAO epDAO;
-	
+
 	@PostMapping("/RegisterEpisode")
-	public Episode RegisterEpisode(@RequestBody Episode episode){
+	public Episode RegisterEpisode(@RequestBody Episode episode) {
 		System.out.println("hii");
 		return epDAO.RegisterEpisode(episode);
-		
+
 	}
-	
+
 	@PostMapping("/RegisterListEpisode")
-	public void RegisterListEpisode(@RequestBody List<Episode> episode){
-		 epDAO.RegisterListEpisode(episode);
-		
+	public void RegisterListEpisode(@RequestBody List<Episode> episode) {
+		epDAO.RegisterListEpisode(episode);
+
 	}
-	
-	
+
 	@GetMapping("/GetAllEpisodes")
-	public List<Episode> GetAllEpisodes(){
+	public List<Episode> GetAllEpisodes() {
 		return epDAO.GetAllEpisodes();
-		
+
 	}
-	
-	
+
 	@PutMapping("/UpdateEpisode")
-	public Episode UpdateEpisode(@RequestBody Episode episode){
+	public Episode UpdateEpisode(@RequestBody Episode episode) {
 		return epDAO.RegisterEpisode(episode);
 	}
-	
+
 	@DeleteMapping("/DeleteEpisode/{episodeId}")
-	public void DeleteEpisode(@PathVariable("episodeId") int episodeId){
+	public void DeleteEpisode(@PathVariable("episodeId") int episodeId) {
 		epDAO.DeleteEpisode(episodeId);
 		System.out.println("hello");
-		
+
 	}
+
 	@GetMapping("/GetEpisodeById")
-	public List<Episode> getEpisodeById(@RequestBody Anime anime){
+	public List<Episode> getEpisodeById(@RequestBody Anime anime) {
 		return epDAO.getEpisode(anime);
 	}
-	
-	@GetMapping("/GetEpisodeByAnimeId/{animeId}")
-	public List<Episode> GetEpisodeByAnimeId(@PathVariable("animeId") int animeId){
-		return epDAO.GetEpisodeByAnimeId(animeId);
-		
-	}
-	
-}
 
+	@GetMapping("/GetEpisodeByAnimeId/{animeId}")
+	public List<Episode> GetEpisodeByAnimeId(@PathVariable("animeId") int animeId) {
+		return epDAO.GetEpisodeByAnimeId(animeId);
+
+	}
+
+}

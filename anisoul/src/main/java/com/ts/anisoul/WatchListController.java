@@ -15,35 +15,34 @@ import com.dto.WatchList;
 
 @RestController
 public class WatchListController {
-	
+
 	@Autowired
 	WatchListDAO wlDAO;
-	
+
 	@PostMapping("/RegisterWatchList")
-	public WatchList RegisterWatchList(@RequestBody WatchList watchlist){
-		List<WatchList>allAnime=wlDAO.GetWatchListByUserId(watchlist.getUserId());
-		
-		for(WatchList ob :allAnime){
-			if
-			(ob.getAnimeTitle().equals(watchlist.getAnimeTitle())){		
+	public WatchList RegisterWatchList(@RequestBody WatchList watchlist) {
+		List<WatchList> allAnime = wlDAO.GetWatchListByUserId(watchlist.getUserId());
+
+		for (WatchList ob : allAnime) {
+			if (ob.getAnimeTitle().equals(watchlist.getAnimeTitle())) {
 				return null;
 			}
 		}
-	
+
 		return wlDAO.RegisterWatchList(watchlist);
-		
+
 	}
-	
+
 	@DeleteMapping("/DeleteWatchList/{watchId}")
-	public String DeleteWatchList(@PathVariable("watchId") int watchId){
-		wlDAO.DeleteWatchList(watchId);		 
-		 return "Deleted WatchList Successfully";
+	public String DeleteWatchList(@PathVariable("watchId") int watchId) {
+		wlDAO.DeleteWatchList(watchId);
+		return "Deleted WatchList Successfully";
 	}
-	
+
 	@GetMapping("GetWatchListByUserId/{userId}")
-	public List<WatchList> GetWatchListByUserId(@PathVariable("userId") int userId){
+	public List<WatchList> GetWatchListByUserId(@PathVariable("userId") int userId) {
 		return wlDAO.GetWatchListByUserId(userId);
-		
+
 	}
 
 }
