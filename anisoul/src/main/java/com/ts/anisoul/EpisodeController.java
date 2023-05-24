@@ -48,9 +48,10 @@ public class EpisodeController {
 	}
 	
 	@DeleteMapping("/DeleteEpisode/{episodeId}")
-	public String DeleteEpisode(@PathVariable("episodeId") int episodeId){
+	public void DeleteEpisode(@PathVariable("episodeId") int episodeId){
 		epDAO.DeleteEpisode(episodeId);
-		return "Episode Deleted Successfully";
+		System.out.println("hello");
+		
 	}
 	@GetMapping("/GetEpisodeById")
 	public List<Episode> getEpisodeById(@RequestBody Anime anime){
