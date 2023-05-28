@@ -21,25 +21,18 @@ public class EmailService {
 		properties.put("mail.smtp.ssl.enable", "true");
 		properties.put("mail.smtp.auth", "true");
 		boolean flag = true;
-
 		Session session = Session.getInstance(properties, new Authenticator() {
-
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("mohdkaif6371@gmail.com", "lpfhlxdvrpyzmgop");
+			return new PasswordAuthentication("mohdkaif6371@gmail.com", "lpfhlxdvrpyzmgop");
 			}
-
 		});
 		session.setDebug(true);
-
 		MimeMessage m = new MimeMessage(session);
 		try {
 			m.setFrom(from);
-
 			m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-
 			m.setSubject(subject);
-
 			m.setText(message);
 			Transport.send(m);
 			System.out.println("success");
@@ -48,7 +41,6 @@ public class EmailService {
 			flag = false;
 		}
 		return flag;
-
 	}
 
 }
