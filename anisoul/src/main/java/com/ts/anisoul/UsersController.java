@@ -74,12 +74,11 @@ public class UsersController {
 	}
 
 	@GetMapping("/login/{userName}/{password}")
-	public boolean userAuthentication(@PathVariable("userName") String userName,@PathVariable("password") String password) {
+	public boolean userAuthentication(@PathVariable("userName") String userName,
+			@PathVariable("password") String password) {
 		String encodedPassword = usersDao.userAuthentication(userName);
-		System.out.print(userName);
-		System.out.print(encodedPassword);
-		System.out.println("_____________________");
 		return pwEncoder.matches(password, encodedPassword);
+
 	}
 
 	@GetMapping("/send-sms/{phoneNo}")
@@ -106,6 +105,7 @@ public class UsersController {
 		System.out.println(phoneNo);
 		System.out.println(password);
 		return usersDao.setPass(phoneNo, password);
+
 	}
 
 	@GetMapping("/sendOTPByEmail/{emailId}")
@@ -129,6 +129,7 @@ public class UsersController {
 	public int newPass(@RequestBody Users user1) {
 		String emailId = user1.getEmailId();
 		String password = user1.getPassword();
+
 		return usersDao.setNewPass(emailId, password);
 
 	}

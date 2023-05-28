@@ -22,11 +22,13 @@ public class WatchListController {
 	@PostMapping("/RegisterWatchList")
 	public WatchList RegisterWatchList(@RequestBody WatchList watchlist) {
 		List<WatchList> allAnime = wlDAO.GetWatchListByUserId(watchlist.getUserId());
+
 		for (WatchList ob : allAnime) {
 			if (ob.getAnimeTitle().equals(watchlist.getAnimeTitle())) {
 				return null;
 			}
 		}
+
 		return wlDAO.RegisterWatchList(watchlist);
 
 	}
